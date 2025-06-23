@@ -1,63 +1,123 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>grepify</title>
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #1db954, #191414);
-      color: white;
-      text-align: center;
+      font-family: "Segoe UI", sans-serif;
+      background-color: #121212;
+      color: #fff;
     }
 
     header {
-      padding: 2em;
+      background: url('assets/splash-landscape.jpg') center/cover no-repeat;
+      padding: 4em 2em;
+      text-align: center;
+      color: #fff;
     }
 
-    img.logo {
-      width: 120px;
-      margin-bottom: 1em;
-    }
-
-    h1 {
-      font-size: 3em;
+    header h1 {
+      font-size: 3.5em;
       margin: 0.2em 0;
     }
 
-    p.tagline {
+    .tagline {
       font-size: 1.3em;
       opacity: 0.9;
     }
 
-    section {
+    .logo {
+      width: 100px;
+      margin-bottom: 1em;
+    }
+
+    main {
+      padding: 2em;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .code-block {
+      background-color: #1e1e1e;
+      border-radius: 8px;
+      padding: 1em;
+      position: relative;
       margin-top: 2em;
     }
 
-    a.button {
-      display: inline-block;
-      background: #191414;
-      color: white;
-      padding: 0.8em 1.5em;
-      border-radius: 30px;
-      text-decoration: none;
+    .copy-btn {
+      position: absolute;
+      top: 1em;
+      right: 1em;
+      background-color: #1db954;
+      color: #000;
+      border: none;
+      padding: 0.5em 1em;
       font-weight: bold;
-      margin-top: 1em;
+      border-radius: 20px;
+      cursor: pointer;
     }
 
-    a.button:hover {
-      background: #1ed760;
+    pre {
+      overflow-x: auto;
+    }
+
+    code {
+      color: #dcdcdc;
+      font-family: Consolas, monospace;
+    }
+
+    a.github-link {
+      display: inline-block;
+      margin-top: 2em;
+      padding: 0.6em 1.4em;
+      background: #1db954;
       color: #000;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 30px;
+    }
+
+    a.github-link:hover {
+      background: #1ed760;
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="logo.png" alt="grepify logo" class="logo">
+    <img src="assets/splash-cube.jpg" alt="grepify logo" class="logo">
     <h1>grepify</h1>
-    <p class="tagline">Por la cacería de ondas sonoras en la terminal 🎶</p>
-    <a href="https://github.com/jesusquijada34/grepify-dev" class="button">Ver en GitHub</a>
+    <p class="tagline">Por la cacería de ondas sonoras desde la terminal 🎶</p>
   </header>
+
+  <main>
+    <h2>Ejemplo de uso con Python</h2>
+    <div class="code-block">
+      <button class="copy-btn" onclick="copiarCodigo()">Copiar</button>
+      <pre><code id="codigo-python">import requests
+
+url = "https://api.spotify.com/v1/search"
+headers = {"Authorization": "Bearer TU_ACCESS_TOKEN"}
+params = {"q": "nirvana", "type": "track"}
+
+res = requests.get(url, headers=headers, params=params)
+for item in res.json()["tracks"]["items"]:
+    print(f'{item["name"]} - {item["artists"][0]["name"]}')</code></pre>
+    </div>
+
+    <a class="github-link" href="https://github.com/jesusquijada34/grepify-dev" target="_blank">Ver en GitHub</a>
+  </main>
+
+  <script>
+    function copiarCodigo() {
+      const codigo = document.getElementById("codigo-python").textContent;
+      navigator.clipboard.writeText(codigo).then(() => {
+        alert("¡Código copiado al portapapeles!");
+      });
+    }
+  </script>
 </body>
 </html>
