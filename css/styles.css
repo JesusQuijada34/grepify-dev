@@ -1,48 +1,67 @@
-/* Reset básico */
+/* Reset general */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Fondo animado */
 body {
-  font-family: 'Segoe UI', sans-serif;
+  font-family: "Segoe UI", sans-serif;
   background: linear-gradient(270deg, #191414, #1db954, #191414);
   background-size: 600% 600%;
   animation: neonGradient 20s ease infinite;
-  color: #ffffff;
+  color: #fff;
   overflow-x: hidden;
 }
 
-/* Animación del fondo */
 @keyframes neonGradient {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
-h1, h2 {
+/* Encabezado */
+header {
   text-align: center;
-  margin: 1em 0;
-  text-shadow: 0 0 15px #1db954;
+  padding: 4em 2em 2em;
 }
 
 .logo {
-  display: block;
-  margin: 2em auto 0;
   width: 120px;
-  filter: drop-shadow(0 0 10px #1db954);
+  margin-bottom: 1em;
+  filter: drop-shadow(0 0 12px #1db954);
+  animation: fadeIn 1.5s ease-in-out;
 }
 
+h1 {
+  font-size: 3.5em;
+  margin-bottom: 0.2em;
+  text-shadow: 0 0 15px #1db954;
+  animation: glowText 2s ease-in-out infinite alternate;
+}
+
+.tagline {
+  font-size: 1.3em;
+  opacity: 0.9;
+  animation: fadeIn 2s ease-out;
+}
+
+/* Animaciones básicas */
+@keyframes glowText {
+  from { text-shadow: 0 0 10px #1db954; }
+  to   { text-shadow: 0 0 25px #1ed760, 0 0 45px #1db954; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Secciones */
 .section {
   padding: 3em 1em;
   text-align: center;
-  animation: fadeInUp 1.5s ease-out;
-}
-
-@keyframes fadeInUp {
-  0% { transform: translateY(40px); opacity: 0; }
-  100% { transform: translateY(0); opacity: 1; }
 }
 
 /* Player visual */
@@ -50,9 +69,9 @@ h1, h2 {
   margin: 3em auto;
   width: 300px;
   height: 300px;
-  background: radial-gradient(#1db954, #191414);
+  background: radial-gradient(circle, #1db954 0%, #121212 70%);
   border-radius: 50%;
-  box-shadow: 0 0 30px #1db954aa;
+  box-shadow: 0 0 40px #1db954aa;
   position: relative;
   display: flex;
   justify-content: center;
@@ -60,10 +79,10 @@ h1, h2 {
 }
 
 #pulse-circle {
-  width: 50%;
-  height: 50%;
+  width: 60%;
+  height: 60%;
+  background: #191414;
   border-radius: 50%;
-  background-color: #191414;
   box-shadow: 0 0 25px #1db954;
   animation: pulse 2s ease-in-out infinite;
 }
@@ -71,4 +90,61 @@ h1, h2 {
 @keyframes pulse {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.2); }
+}
+
+/* Código Python */
+.code-block {
+  background-color: #1e1e1e;
+  border-radius: 8px;
+  padding: 1.5em;
+  position: relative;
+  margin: 2em auto;
+  max-width: 700px;
+  text-align: left;
+}
+
+.code-block pre {
+  overflow-x: auto;
+}
+
+code {
+  color: #dcdcdc;
+  font-family: Consolas, monospace;
+  font-size: 1em;
+}
+
+/* Botón Copiar */
+.copy-btn {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  background-color: #1db954;
+  color: #000;
+  border: none;
+  padding: 0.5em 1em;
+  font-weight: bold;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.copy-btn:hover {
+  background: #1ed760;
+}
+
+/* Botón GitHub */
+a.github-link {
+  display: inline-block;
+  margin-top: 2em;
+  padding: 0.8em 1.6em;
+  background: #1db954;
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 30px;
+  transition: background 0.3s ease-in-out;
+}
+
+a.github-link:hover {
+  background: #1ed760;
 }
