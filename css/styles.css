@@ -1,150 +1,173 @@
-/* Reset general */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+:root {
+  --spotify-green: #1db954;
+  --spotify-lime: #1ed760;
+  --dark-bg: #121212;
+  --light-bg: #f2f2f2;
+  --neon-glow: 0 0 8px var(--spotify-green), 0 0 20px var(--spotify-lime);
+  --pulse-size: 60%;
+  --transition: 0.6s ease;
 }
 
-/* Fondo animado */
 body {
+  margin: 0;
   font-family: "Segoe UI", sans-serif;
-  background: linear-gradient(270deg, #191414, #1db954, #191414);
-  background-size: 600% 600%;
-  animation: neonGradient 20s ease infinite;
-  color: #fff;
+  background: linear-gradient(to right, #101010, #191919);
+  color: #ffffff;
+  transition: var(--transition);
   overflow-x: hidden;
 }
 
-@keyframes neonGradient {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+body.light {
+  background: linear-gradient(to right, #ffffff, #eaf6ee);
+  color: #000;
 }
 
-/* Encabezado */
+/* Header */
 header {
   text-align: center;
-  padding: 4em 2em 2em;
+  padding: 3em 2em;
 }
 
 .logo {
   width: 120px;
-  margin-bottom: 1em;
-  filter: drop-shadow(0 0 12px #1db954);
-  animation: fadeIn 1.5s ease-in-out;
+  filter: drop-shadow(0 0 10px var(--spotify-green));
+  animation: fadeIn 1.5s ease-in-out forwards;
 }
 
 h1 {
-  font-size: 3.5em;
-  margin-bottom: 0.2em;
-  text-shadow: 0 0 15px #1db954;
-  animation: glowText 2s ease-in-out infinite alternate;
+  font-size: 3.2em;
+  margin: 0.5em 0;
+  text-shadow: var(--neon-glow);
+  animation: glowPulse 2.5s infinite alternate;
 }
 
 .tagline {
-  font-size: 1.3em;
-  opacity: 0.9;
-  animation: fadeIn 2s ease-out;
-}
-
-/* Animaciones básicas */
-@keyframes glowText {
-  from { text-shadow: 0 0 10px #1db954; }
-  to   { text-shadow: 0 0 25px #1ed760, 0 0 45px #1db954; }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-20px); }
-  to   { opacity: 1; transform: translateY(0); }
+  font-size: 1.2em;
+  opacity: 0.85;
+  animation: typeIntro 2s ease-out forwards;
 }
 
 /* Secciones */
 .section {
-  padding: 3em 1em;
+  padding: 3em 1.5em;
   text-align: center;
 }
 
-/* Player visual */
-#player-container {
-  margin: 3em auto;
-  width: 300px;
-  height: 300px;
-  background: radial-gradient(circle, #1db954 0%, #121212 70%);
-  border-radius: 50%;
-  box-shadow: 0 0 40px #1db954aa;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#pulse-circle {
-  width: 60%;
-  height: 60%;
-  background: #191414;
-  border-radius: 50%;
-  box-shadow: 0 0 25px #1db954;
-  animation: pulse 2s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.2); }
-}
-
-/* Código Python */
-.code-block {
-  background-color: #1e1e1e;
-  border-radius: 8px;
-  padding: 1.5em;
-  position: relative;
-  margin: 2em auto;
-  max-width: 700px;
-  text-align: left;
-}
-
-.code-block pre {
-  overflow-x: auto;
-}
-
-code {
-  color: #dcdcdc;
-  font-family: Consolas, monospace;
+input[type="text"] {
+  padding: 0.6em 1em;
+  width: 70%;
+  max-width: 400px;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  background: #1e1e1e;
+  color: #fff;
   font-size: 1em;
+  transition: box-shadow 0.3s;
+  box-shadow: 0 0 5px var(--spotify-green);
 }
 
-/* Botón Copiar */
-.copy-btn {
-  position: absolute;
-  top: 1em;
-  right: 1em;
-  background-color: #1db954;
+input[type="text"]:focus {
+  box-shadow: 0 0 12px var(--spotify-lime);
+}
+
+button {
+  background: var(--spotify-green);
   color: #000;
   border: none;
-  padding: 0.5em 1em;
-  font-weight: bold;
   border-radius: 20px;
+  padding: 0.7em 1.5em;
+  margin-top: 1em;
+  font-weight: bold;
   cursor: pointer;
   transition: background 0.3s;
 }
 
-.copy-btn:hover {
-  background: #1ed760;
+button:hover {
+  background: var(--spotify-lime);
 }
 
-/* Botón GitHub */
 a.github-link {
   display: inline-block;
   margin-top: 2em;
-  padding: 0.8em 1.6em;
-  background: #1db954;
+  background: var(--spotify-green);
   color: #000;
+  padding: 0.8em 1.6em;
+  border-radius: 30px;
   text-decoration: none;
   font-weight: bold;
-  border-radius: 30px;
-  transition: background 0.3s ease-in-out;
 }
 
 a.github-link:hover {
-  background: #1ed760;
+  background: var(--spotify-lime);
+}
+
+/* Beat Circle Visual */
+#player-container {
+  width: 260px;
+  height: 260px;
+  margin: 2em auto;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, var(--spotify-green), #101010);
+  box-shadow: 0 0 25px var(--spotify-green);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+#pulse-circle {
+  width: var(--pulse-size);
+  height: var(--pulse-size);
+  border-radius: 50%;
+  background-color: #0d0d0d;
+  box-shadow: 0 0 20px var(--spotify-green);
+  transition: transform 0.05s ease-out;
+}
+
+/* Código */
+.code-block {
+  background-color: #1e1e1e;
+  color: #ccc;
+  padding: 1.5em;
+  border-radius: 10px;
+  max-width: 700px;
+  margin: 2em auto;
+  position: relative;
+  text-align: left;
+  overflow-x: auto;
+  box-shadow: inset 0 0 12px rgba(0, 255, 128, 0.1);
+}
+
+.copy-btn {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  background-color: var(--spotify-green);
+  color: #000;
+  border: none;
+  padding: 0.4em 1em;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Animaciones */
+@keyframes glowPulse {
+  from {
+    text-shadow: 0 0 8px var(--spotify-green);
+  }
+  to {
+    text-shadow: 0 0 20px var(--spotify-lime);
+  }
+}
+
+@keyframes typeIntro {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.98); }
+  to   { opacity: 1; transform: scale(1); }
 }
