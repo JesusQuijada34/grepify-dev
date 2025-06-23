@@ -37,7 +37,7 @@ async function buscarMusica() {
   if (!query) return;
 
   // ❗️ Reemplaza con tu token de Spotify válido
-  const token = "7edce1fd97734d2e9588c975e57f5e87";
+  const token = "BQBtZVfSQ8JAEiACIGq5u1tv-74LlrxmJ3pHmHQMGpg-bZL7Uxq9iocJYFEbYmqYtEys1RLu0J1b-0_4jkrU-XBfz_hhAQjBEDk5247GlUNdeGIPOj-4n_ePqN8cQDJawEtsSf8cx1M";
 
   const res = await fetch(`https://api.spotify.com/v1/search?q=${encodeURIComponent(query)}&type=track&limit=5`, {
     headers: {
