@@ -36,7 +36,7 @@ async function buscarMusica() {
   const query = searchInput.value.trim();
   if (!query) return;
 
-  const token = "TU_ACCESS_TOKEN"; // ← Inserta aquí tu token válido
+  const token = "BQAUA89MrWYVF81Zd-Kgq7RFZqts3QN-u6cFhHyIgYBvdZllFOsjAAHfNS1TIY_H2FGe4T1UgGD6FMacp-QJBEHN7rSFMmzERy49vbFmVo6JTiZTj6h9k7A--wKrl6aIbU0QzPPD_4Q"; // ← Inserta aquí tu token válido
 
   const res = await fetch(`https://api.spotify.com/v1/search?q=${encodeURIComponent(query)}&type=track&limit=5`, {
     headers: { Authorization: `Bearer ${token}` }
