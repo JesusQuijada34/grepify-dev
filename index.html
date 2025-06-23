@@ -1,11 +1,63 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>grepify</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #1db954, #191414);
+      color: white;
+      text-align: center;
+    }
+
+    header {
+      padding: 2em;
+    }
+
+    img.logo {
+      width: 120px;
+      margin-bottom: 1em;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin: 0.2em 0;
+    }
+
+    p.tagline {
+      font-size: 1.3em;
+      opacity: 0.9;
+    }
+
+    section {
+      margin-top: 2em;
+    }
+
+    a.button {
+      display: inline-block;
+      background: #191414;
+      color: white;
+      padding: 0.8em 1.5em;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 1em;
+    }
+
+    a.button:hover {
+      background: #1ed760;
+      color: #000;
+    }
+  </style>
 </head>
 <body>
-  <h1>🎵 grepify</h1>
-  <p>Buscador de canciones en la terminal con estilo shell y Spotify API.</p>
+  <header>
+    <img src="logo.png" alt="grepify logo" class="logo">
+    <h1>grepify</h1>
+    <p class="tagline">Por la cacería de ondas sonoras en la terminal 🎶</p>
+    <a href="https://github.com/jesusquijada34/grepify-dev" class="button">Ver en GitHub</a>
+  </header>
 </body>
 </html>
