@@ -2,40 +2,33 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>grepify</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grepify | Filtrador de Spotify</title>
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
   <header>
     <img src="assets/splash-cube.jpg" alt="grepify logo" class="logo">
-    <h1>grepify</h1>
-    <p class="tagline">Por la cacería de ondas sonoras desde la terminal 🎶</p>
-    <button id="toggle-theme">🌓 Cambiar tema</button>
+    <h1 class="glow-text">grepify | El sitio web #1 para filtrar canciones de spotify</h1>
+    <p class="tagline"></p>
+    <button id="toggle-theme">🌓 Tema</button>
   </header>
 
   <main>
     <section class="section">
-      <h2>¿Qué es grepify?</h2>
-      <p>Una herramienta de línea de comandos que permite buscar canciones en Spotify, escuchar previews musicales y convertir tu terminal en una consola sonora.</p>
-      <p>Ideal para amantes del shell, hackers sonoros y fans del minimalismo productivo 🎧</p>
+      <h2>¿Qué es?</h2>
+      <p>Buscador minimalista de canciones desde terminal usando la API de Spotify.</p>
     </section>
+
     <section class="section">
-      <h2>Impulsado por:</h2>
-      <p>@MikelCT</p>
-      <p>@GaboAi34_Bot</p>
-      <p>@Dallivin</p>
-    </section>
-    <section class="section" id="music-search">
-      <h2>Buscar canción</h2>
-      <input type="text" id="searchInput" placeholder="Ejemplo: Daft Punk Get Lucky" />
+      <input type="text" id="searchInput" placeholder="Daft Punk Get Lucky" />
       <button id="searchBtn">🔍 Buscar</button>
       <div id="results"></div>
     </section>
 
     <section class="section">
-      <h2>Reproductor Visual</h2>
-      <audio id="bgAudio" src="assets/synth-loop.mp3" controls></audio>
+      <h2>Visualizador</h2>
+      <audio id="bgAudio" controls hidden></audio>
       <div id="player-container">
         <div id="pulse-circle"></div>
       </div>
@@ -57,9 +50,10 @@ for item in res.json()["tracks"]["items"]:
       </div>
     </section>
 
-    <div class="section">
-      <a class="github-link" href="https://github.com/jesusquijada34/grepify-dev" target="_blank">Ver en GitHub</a>
-    </div>
+    <footer class="section thanks">
+      <p class="credits-title">Agradecimientos especiales</p>
+      <p class="credits">@MikelCT · @GaboAI34_Bot · @Dallivin</p>
+    </footer>
   </main>
 
   <script src="js/script.js"></script>
