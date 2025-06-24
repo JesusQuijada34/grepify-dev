@@ -1,77 +1,114 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="description" content="Grepify | Buscador musical desde la terminal y web visual con pulsos sincronizados al ritmo de Spotify." />
-  <meta name="theme-color" content="#1db954" />
-
-  <title>grepify</title>
-
-  <link rel="stylesheet" href="css/styles.css" />
-
-  <!-- Fuente adaptable y segura -->
-  <link href="https://fonts.googleapis.com/css2?family=Segoe+UI&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grepify | Descarga Legal de Contenido Público</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="icon" href="assets/splash-cube.jpg">
 </head>
 <body>
-  <header>
-    <img src="assets/splash-cube.jpg" alt="grepify logo" class="logo" loading="lazy">
-    <h1 class="glow-text">grepify</h1>
-    <p class="tagline"></p>
-    <button id="toggle-theme" aria-label="Alternar tema claro/oscuro">🌓 Tema</button>
-  </header>
+    <div class="particles" id="particles-js"></div>
+    
+    <div class="container">
+        <header class="header">
+            <div class="logo-container animate__animated animate__fadeInDown">
+                <img src="assets/splash-cube.jpg" alt="Grepify" class="logo pulse">
+                <h1 class="logo-text">
+                    <span class="gradient-text">GREPIFY</span>
+                    <span class="badge">LEGAL</span>
+                </h1>
+            </div>
+            <p class="subtitle">Servicio 100% sin ánimo de lucro - Solo contenido público</p>
+        </header>
 
-  <main>
-    <section class="section" id="intro">
-      <h2>¿Qué es?</h2>
-      <p>
-        <strong>grepify</strong> es una herramienta minimalista que fusiona la terminal con el alma de la música 🎧.
-        Diseñada para desarrolladores, amantes del código y entusiastas del ritmo, esta app permite buscar canciones directamente desde la línea de comandos
-        o desde una web visual con efectos animados y beats sincronizados.
-      </p>
-    </section>
-
-    <section class="section" id="buscador">
-      <h2>Buscar canción</h2>
-      <form onsubmit="event.preventDefault(); buscarMusica();">
-        <label for="searchInput" class="visually-hidden">Buscar:</label>
-        <input type="text" id="searchInput" placeholder="Ejemplo: Daft Punk Get Lucky" aria-label="Buscar canción" />
-        <button id="searchBtn" type="submit">🔍 Buscar</button>
-      </form>
-      <div id="results"></div>
-    </section>
-
-    <section class="section" id="reproductor">
-      <h2>Reproductor Visual</h2>
-      <audio id="bgAudio" src="assets/ambient-loop.mp3" autoplay loop hidden></audio>
-      <div id="player-container" aria-label="Visualizador de beats">
-        <div id="pulse-circle"></div>
-      </div>
-    </section>
-
-    <section class="section" id="ejemplo-codigo">
-      <h2>Ejemplo en Python</h2>
-      <div class="code-block" role="region" aria-label="Código Python">
-        <button class="copy-btn" onclick="copiarCodigo()">📋 Copiar</button>
-        <pre><code id="codigo-python">import requests
-
-url = "https://api.spotify.com/v1/search"
-headers = {"Authorization": "Bearer TU_ACCESS_TOKEN"}
-params = {"q": "nirvana", "type": "track"}
-
-res = requests.get(url, headers=headers, params=params)
-for item in res.json()["tracks"]["items"]:
-    print(f'{item["name"]} - {item["artists"][0]["name"]}')</code></pre>
-      </div>
-    </section>
-
-    <footer class="section thanks">
-      <p class="credits-title">Agradecimientos especiales</p>
-      <p class="credits">@MikelCT · @GaboAI34_Bot · @Dallivin</p>
-    </footer>
-  </main>
-
-  <script src="js/script.js" defer></script>
+        <main class="main-content">
+            <div class="download-card animate__animated animate__fadeInUp">
+                <div class="platform-selector">
+                    <div class="input-group">
+                        <input type="url" id="mediaUrl" placeholder="https://..." required>
+                        <button id="analyzeBtn" class="scan-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="options-grid" id="formatOptions" style="display:none;">
+                        <h3>Formatos Disponibles:</h3>
+                        <div class="options-container" id="formatsContainer"></div>
+                    </div>
+                    
+                    <div class="download-progress" id="downloadProgress" style="display:none;">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                        <span id="progressText">0%</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="info-card animate__animated animate__fadeInUp animate__delay-1s">
+                <div class="info-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>CUMPLIMIENTO LEGAL</h3>
+                <p>Grepify solo procesa contenido público sin restricciones. No descargamos:</p>
+                <ul>
+                    <li><i class="fas fa-ban"></i> Contenido con copyright restringido</li>
+                    <li><i class="fas fa-ban"></i> Videos con verificación de edad</li>
+                    <li><i class="fas fa-ban"></i> Material privado o no listado</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+    
+    <div class="wave-animation"></div>
+    
+    <!-- Modal de Reproductor -->
+    <div id="playerModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-play-circle"></i> Reproductor Offline</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="player-container">
+                    <video id="mediaPlayer" controls style="display:none;"></video>
+                    <audio id="audioPlayer" controls style="display:none;"></audio>
+                    <div class="player-placeholder" id="playerPlaceholder">
+                        <i class="fas fa-music"></i>
+                        <p>Contenido descargado listo para reproducir</p>
+                    </div>
+                </div>
+                <div class="download-info">
+                    <div class="info-row">
+                        <span>Archivo:</span>
+                        <strong id="modal-filename">archivo.mp3</strong>
+                    </div>
+                    <div class="info-row">
+                        <span>Tamaño:</span>
+                        <strong id="modal-filesize">3.45 MB</strong>
+                    </div>
+                    <div class="info-row">
+                        <span>Duración:</span>
+                        <strong id="modal-duration">3:22</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn" id="saveFileBtn">
+                    <i class="fas fa-save"></i> Guardar Archivo
+                </button>
+                <button class="modal-btn primary" id="playBtn">
+                    <i class="fas fa-play"></i> Reproducir
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
