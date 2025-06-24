@@ -1,30 +1,49 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Grepify - Tu universo musical</title>
-  <link rel="icon" href="assets/splash-cube.jpg" />
-  <link rel="stylesheet" href="css/styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grepify - Convertidor de YouTube</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="assets/splash-cube.jpg" type="image/jpeg"> <!-- Icono de la pestaña -->
+    <meta name="description" content="Convierte videos de YouTube y descarga descripciones.">
+    <meta name="keywords" content="YouTube, convertidor, video, descarga, descripción, grepify">
 </head>
 <body>
-  <header class="header-neon">
-    <h1>🌟 Grepify</h1>
-    <p>Explora, escucha y descarga contenido accesible de la red</p>
-  </header>
 
-  <main class="main-content">
-    <form method="POST" action="/descargar">
-      <input type="text" name="query" placeholder="¿Qué deseas buscar hoy?" required />
-      <button type="submit">Buscar & Descargar</button>
-    </form>
-    <div class="visualizer"></div>
-  </main>
+    <header>
+        <img src="assets/splash-cube.jpg" alt="Logo de Grepify" class="logo">
+        <h1>Grepify</h1>
+        <p>Convierte tus videos favoritos de YouTube y mucho más.</p>
+    </header>
 
-  <footer class="footer-neon">
-    <p>100% libre & ético ✨ Solo contenido público y permitido</p>
-  </footer>
+    <main>
+        <section class="input-section">
+            <label for="youtubeURL">URL del Video de YouTube:</label>
+            <input type="url" id="youtubeURL" placeholder="Ingresa la URL del video">
+            <button id="convertirBtn">Convertir</button>
+            <div id="errorMensaje" class="error"></div>
+        </section>
 
-  <script src="js/script.js"></script>
+        <section class="options-section">
+            <h2>Opciones</h2>
+            <label><input type="checkbox" id="convertirDescripcion"> Convertir Descripción</label>
+            <!-- Aquí puedes agregar más opciones en el futuro -->
+        </section>
+
+        <section class="resultados-section" id="resultadosSection">
+            <h2 class="resultados-title">Resultados</h2>
+            <div id="resultados">
+                <!-- Los resultados se mostrarán aquí -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Grepify.  Desarrollado con ❤️ por <a href="https://twitter.com/dallivin" target="_blank">@dallivin</a>.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
 </body>
-        </html>
+</html>
+ 
