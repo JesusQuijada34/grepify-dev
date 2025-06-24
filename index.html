@@ -2,26 +2,29 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Grepify - Escucha sin conexión</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Grepify - Tu universo musical</title>
+  <link rel="icon" href="assets/splash-cube.jpg" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-  <header>
-    <img src="assets/splash-cube.jpg" alt="Grepify Logo" class="logo" />
-    <h1>Grepify</h1>
-    <p>Accede a contenido público desde cualquier plataforma</p>
+  <header class="header-neon">
+    <h1>🌟 Grepify</h1>
+    <p>Explora, escucha y descarga contenido accesible de la red</p>
   </header>
-  <section class="content">
-    <img src="assets/splash-landscape.jpg" alt="Portada" class="cover" />
+
+  <main class="main-content">
     <form method="POST" action="/descargar">
-      <input type="url" name="url" placeholder="Introduce la URL pública" required />
-      <button type="submit">Obtener</button>
+      <input type="text" name="query" placeholder="¿Qué deseas buscar hoy?" required />
+      <button type="submit">Buscar & Descargar</button>
     </form>
-  </section>
-  <footer>
-    <p>100% sin fines de lucro | Solo contenido público | Respeto a todas las plataformas</p>
+    <div class="visualizer"></div>
+  </main>
+
+  <footer class="footer-neon">
+    <p>100% libre & ético ✨ Solo contenido público y permitido</p>
   </footer>
+
   <script src="js/script.js"></script>
 </body>
-</html>
+        </html>
