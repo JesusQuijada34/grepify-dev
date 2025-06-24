@@ -1,67 +1,252 @@
+/* Estilos Generales */
+:root {
+    --primary-color: #3498db; /* Azul */
+    --secondary-color: #f39c12; /* Naranja */
+    --background-color: #ecf0f1; /* Gris claro */
+    --text-color: #2c3e50; /* Gris oscuro */
+    --border-radius: 8px;
+    --transition-speed: 0.3s;
+}
+
 body {
-  background: radial-gradient(circle at top, #1a1a1a, #000000);
-  color: #00ffcc;
-  font-family: 'Segoe UI', sans-serif;
-  text-align: center;
-  overflow-x: hidden;
+    font-family: 'Arial', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: space-between;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
 }
 
-h1, p {
-  animation: pulseText 2.5s infinite alternate;
+/* Header */
+header {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    width: 100%;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color var(--transition-speed);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-input, button {
-  padding: 1em;
-  margin: 1em 0.5em;
-  border: none;
-  border-radius: 8px;
-  outline: none;
-  font-size: 1.1em;
-  transition: all 0.3s ease-in-out;
+.logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    animation: float 3s ease-in-out infinite;
 }
 
-input {
-  background-color: #000;
-  color: #0f0;
-  border: 1px solid #0f0;
-  box-shadow: 0 0 10px #00ff88;
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    animation: fadeInUp 1s ease-out;
 }
 
-input:focus {
-  box-shadow: 0 0 20px #00ffcc, 0 0 10px #00ffcc inset;
+header p {
+    font-size: 1.1rem;
+    animation: fadeInUp 1s ease-out 0.2s; /* Pequeño retraso para la animación */
+}
+
+
+/* Main */
+main {
+    padding: 20px;
+    width: 80%;
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: box-shadow var(--transition-speed);
+}
+
+/* Input Section */
+.input-section {
+    margin-bottom: 20px;
+    padding: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+input[type="url"] {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    transition: border-color var(--transition-speed);
+}
+
+input[type="url"]:focus {
+    border-color: var(--primary-color);
+    outline: none;
 }
 
 button {
-  background-color: #00ff88;
-  color: #000;
-  cursor: pointer;
-  box-shadow: 0 0 12px #00ffaa, 0 0 20px #00ffaa inset;
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color var(--transition-speed);
+    animation: scaleIn 0.5s ease-out;
 }
 
 button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 30px #00ffaa;
+    background-color: darken(var(--secondary-color), 10%);
 }
 
-.header-neon, .footer-neon {
-  padding: 2rem 0;
-  border-top: 1px solid #00ffaa33;
-  border-bottom: 1px solid #00ffaa33;
+.error {
+    color: #e74c3c; /* Rojo */
+    margin-top: 10px;
+    font-size: 0.9rem;
+    animation: shake 0.5s ease-in-out;
 }
 
-.visualizer {
-  width: 100%;
-  height: 120px;
-  background: repeating-linear-gradient(90deg, #00ffcc 0px, #00ffcc 10px, transparent 10px, transparent 20px);
-  animation: moveVisualizer 1.5s linear infinite;
+
+/* Options Section */
+.options-section {
+    margin-bottom: 20px;
+    padding: 20px;
+    border-bottom: 1px solid #ccc;
 }
 
-@keyframes moveVisualizer {
-  0% { background-position-x: 0; }
-  100% { background-position-x: 100px; }
+/* Resultados Section */
+.resultados-section {
+    padding: 20px;
 }
 
-@keyframes pulseText {
-  from { text-shadow: 0 0 5px #00ffaa; }
-  to { text-shadow: 0 0 20px #00ffaa; }
-  }
+.resultados-title {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+#resultados {
+    margin-top: 10px;
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: var(--border-radius);
+    background-color: #f9f9f9;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    overflow-x: auto; /* Para el scroll horizontal en contenido largo */
+    animation: fadeIn 0.7s ease-out;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    width: 100%;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 0.9rem;
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color var(--transition-speed);
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color var(--transition-speed);
+}
+
+footer a:hover {
+    color: var(--secondary-color);
+}
+
+/* Animaciones */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    10% { transform: translateX(-5px); }
+    20% { transform: translateX(5px); }
+    30% { transform: translateX(-5px); }
+    40% { transform: translateX(5px); }
+    50% { transform: translateX(-5px); }
+    60% { transform: translateX(5px); }
+    70% { transform: translateX(-5px); }
+    80% { transform: translateX(5px); }
+    90% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+    main {
+        width: 90%;
+    }
+
+    .logo {
+        width: 60px;
+        height: 60px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+}
+ 
