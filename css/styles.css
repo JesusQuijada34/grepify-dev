@@ -1,32 +1,67 @@
 body {
-  background-color: #0f0f0f;
+  background: radial-gradient(circle at top, #1a1a1a, #000000);
+  color: #00ffcc;
   font-family: 'Segoe UI', sans-serif;
-  color: #00ff88;
   text-align: center;
+  overflow-x: hidden;
 }
 
-header, footer {
-  animation: glow 1.5s infinite alternate;
-}
-
-.logo {
-  width: 100px;
+h1, p {
+  animation: pulseText 2.5s infinite alternate;
 }
 
 input, button {
   padding: 1em;
-  margin-top: 1em;
+  margin: 1em 0.5em;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
+  outline: none;
+  font-size: 1.1em;
+  transition: all 0.3s ease-in-out;
+}
+
+input {
+  background-color: #000;
+  color: #0f0;
+  border: 1px solid #0f0;
+  box-shadow: 0 0 10px #00ff88;
+}
+
+input:focus {
+  box-shadow: 0 0 20px #00ffcc, 0 0 10px #00ffcc inset;
 }
 
 button {
   background-color: #00ff88;
   color: #000;
   cursor: pointer;
+  box-shadow: 0 0 12px #00ffaa, 0 0 20px #00ffaa inset;
 }
 
-@keyframes glow {
-  from { text-shadow: 0 0 5px #00ff88; }
-  to { text-shadow: 0 0 20px #00ff88; }
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px #00ffaa;
 }
+
+.header-neon, .footer-neon {
+  padding: 2rem 0;
+  border-top: 1px solid #00ffaa33;
+  border-bottom: 1px solid #00ffaa33;
+}
+
+.visualizer {
+  width: 100%;
+  height: 120px;
+  background: repeating-linear-gradient(90deg, #00ffcc 0px, #00ffcc 10px, transparent 10px, transparent 20px);
+  animation: moveVisualizer 1.5s linear infinite;
+}
+
+@keyframes moveVisualizer {
+  0% { background-position-x: 0; }
+  100% { background-position-x: 100px; }
+}
+
+@keyframes pulseText {
+  from { text-shadow: 0 0 5px #00ffaa; }
+  to { text-shadow: 0 0 20px #00ffaa; }
+  }
